@@ -51,14 +51,14 @@ In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag
 You can either follow [Dortania](https://dortania.github.io/) and [ChefKiss](https://chefkissinc.github.io/guides/hackintosh/) guides (Highly recommended)
 or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)
 
-Initial EFI setup         
+#### Initial EFI setup         
 Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html)      
 You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
 From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
 Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
-Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to. I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
-Kext folder setup        
+#### Kext folder setup        
 You have to download the following kext and pute them into your `Kext` folder :
 | Kext        |  Note             |
 | --------    | ----------------- |
@@ -78,16 +78,16 @@ You have to download the following kext and pute them into your `Kext` folder :
 | [ECEnabler](https://github.com/1Revenger1/ECEnabler/releases) | |
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys) | |
 
-Map your USB     
+#### Map your USB     
 In Windows, download USBToolBox, extract It and open `windows.exe`. Go in the settings and enable Native Classes then,
 select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port. Once you're done with mapping, go to
 `Select Ports`, adjust anything that is not set correct and then press `K` to build the kext then, put it into your `kext` folder.
 
-Config.plist setup
+#### Config.plist setup
 From the `OpenCorePKG` folder, open the `docs` folder then copy the `sample.plist` file and put it on your usb stick into the `OC` folder, then rename it into `config.plist`.
 Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`
 
-SSDT creation     
+#### SSDT creation     
 In Windows, download SSDTTime, extract It and open `SSDTTime.bat`.        
 Dump your ACPI table pressing `P`.   
 Then, you have to choose this options.   
@@ -138,7 +138,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 
 > [!NOTE]
 >
->I firstly installed ventura and then I upgraded to Sequoia but everything but this status should apply to every MacOS version you install. Let me know if it is not like this.
+>I firstly installed ventura and then I upgraded to Sequoia and I did not test any other version but everything in this status should apply to every MacOS version you installable on this Thinkpad. Let me know if It is not so.
 > 
 > - Working = Works out of the box or with some troubleshooting 
 > - Partially Working = Working but with some occasional problems
