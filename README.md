@@ -1,0 +1,155 @@
+# WIP
+# Hackintosh for Thinkpad T14s Gen 2 (AMD version) NO EFI
+
+> [!WARNING]
+> I am not responsible for any damages you may cause
+> installing MacOS on your thinkpad T14s Gen 2
+>
+> THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
+>
+> With this repository I would like to create a semi-guide to install MacOS
+> on the Thinkpad T14s Gen 2 Amd version and showing what works and what does not.
+> 
+> You have to build your own EFI by following [Dortania
+> guide](https://dortania.github.io/) as you may have a
+> a slightly different configuration than mine.
+
+
+## 💻 Hardware
+- CPU: AMD Ryzen 7 PRO 5850U With Radeon Graphics
+- GPU: Vega 8 2GB (VRAM adjusted in BIOS)
+- RAM: 16GB 4266 MHz
+- Storage: 512GB SSD NVME (WDC PC SN730 512G)
+- Audio Codec: Realtek ALC257
+- Wireless Card: Intel AX210
+- LAN: Realtek GbE 8111 Family
+- Screen: IPS 1920x1080 (500 nits variant) with touchscreen
+
+## BIOS Config
+
+| Menu     |                   |                                  | Setting     | Note        |
+| -------- | ----------------- | -------------------------------- | ----------- | ----------- |
+| Config   | CPU               | CPU Power Management             | `Enable`    |             |
+| Security | Security Chip     |                                  | `Disable`   |             |
+|          | Memory Protection | Execution Prevention             | `Enable`    |             |
+|          | Virtualization    | AMD Virtualization Technology    | `Enable`    |             |
+|          | Secure Boot       |                                  | `Disable`   | [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) |
+|          | Device Guard      |                                  | `Disable`   |             |
+| Startup  | Boot Mode         |                                  | `Quick`     |             |
+
+## Pre-setup
+
+You must have a usb stick where you put OpenCore and the MacOS recovery.           
+You must use your Target Laptop to set up your SSDT and USB and you should have a second PC for troubleshooting.
+You should update your BIOS before trying to install MacOS.        
+Download [OpenCore debug](https://github.com/acidanthera/opencorepkg/releases) (This will provide us more logs to help us troubleshooting in case of problems.)     
+Download [ProperTree](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) (a .plis editor)       
+Download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS/archive/refs/heads/master.zip) (to generate your SMBIOS)      
+In Windows Download [SSDTTime](https://github.com/corpnewt/SSDTTime/archive/refs/heads/master.zip) (to generate your ssdt)        
+In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag/0.2) (to map your usb)
+
+## Setup
+
+You can either follow [Dortania](https://dortania.github.io/) and [ChefKiss](https://chefkissinc.github.io/guides/hackintosh/) guides (Highly recommended)
+or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)
+
+Initial EFI setup         
+Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html)      
+You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
+From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
+Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM,
+but note that it is known to brick some thinkpads making them unbootable so i would prefer not to. I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP).     
+
+Kext folder setup        
+You have to download the following kext and pute them into your `Kext` folder :
+| Kext        |  Note             |
+| --------    | ----------------- |
+| [Lilu](https://github.com/acidanthera/Lilu/releases)   |                   |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)  | From the zip folder that you get when you download this kext you have to also pick `SMCBattery`                |
+| [SMCRadeon](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
+| [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, while installing, disable It    | 
+| [AppleALC](https://github.com/acidanthera/AppleALC/releases)            | You can use `alcid=11` as codec in your boot-args       |
+|  [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)           |      |
+| [Itlwm or AirportItlwm](https://openintelwireless.github.io/itlwm/)    | If you're installing Ventura or lower you can use AirportItlwm as it enables native wifi but, if you're installing Sonoma+,  itlwm + heliport is reccomended (Read the guide from the link to understand better)       |
+| [OpenIntelBluetooth](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | On macOS 12+ you need to use IntelBluetoothFirmware and IntelBTPatcher from the zip that you just downloaded, and BlueToolFixup from [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases). |
+|[VoodooPS2](https://github.com/acidanthera/VoodooPS2/releases) ||
+| [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C/releases) | This enables just trackpad but, If you want, you can add VoodooI2CHID to also enables touchscreen. |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | |
+| [AppleMCEReporterDisabler](https://chefkissinc.github.io/Extras/Kexts/AppleMCEReporterDisabler.zip) | |
+| [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant/releases) | |
+| [ECEnabler](https://github.com/1Revenger1/ECEnabler/releases) | |
+| [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys) | |
+
+Map your USB     
+In Windows, download USBToolBox, extract It and open `windows.exe`. Go in the settings and enable Native Classes then,
+select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port. Once you're done with mapping, go to
+`Select Ports`, adjust anything that is not set correct and then press `K` to build the kext then, put it into your `kext` folder.
+
+.Plist setup
+From the `OpenCorePKG` folder, open the `docs` folder then copy the `sample.plist` file and put it on your usb stick into the `OC` folder, then rename it into `config.plist`.
+Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`
+
+SSDT creation     
+In Windows, download SSDTTime, extract It and open `SSDTTime.bat`.        
+Dump your ACPI table pressing `P`.   
+Then, you have to choose this options.   
+`USBX` (Choose B).   
+`RTCAWAC` (If It says that you do not need It, skip It.).  
+`PluginType`   
+`USB Reset`   
+`FakeEC Laptop`  
+`XOSI` (Choose A)  
+`PNLF`   
+`ALS0`     
+Now, go into the `Results` folder and take every `.aml` file and put it into your `OC/ACPI` folder. Now, from the `SSDTTime` folder use the `PatchMerge.bat` file to merge your `config.plist` with the patch that SSDTTime created for you.
+
+## Troubleshooting
+
+You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
+For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot
+
+## Post-Install
+
+#### Bluetooth issues      
+For Monterey and older, if you followed the guide, It should work Out Of The Box, but if you installed Ventura+ you have to do some trouble shooting.      
+For Sonoma and Ventura, go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plist` file and add this:      
+
+| Key        |  Type           |  Value             |
+| --------    | ----------------- | ----------------- |
+| bluetoothInternalControllerInfo | Data | 00000000 00000000 00000000 0000 |
+| bluetoothExternalDongleFailed | Data | 00 |
+
+If it still doesn't work, add `-btlfxnvramcheck` in your boot-args
+
+For Sequoia+ add the same `NVRAM` values as for Venura and Sonoma excpet for the boot-arg and the add `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
+
+Now your bluetooth should work properly          
+
+#### Crashing apps issue   
+Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work.
+
+
+
+## 🔧 Status
+
+> [!NOTE]
+>
+> - Working = Works out of the box or with some troubleshooting 
+> - Partially Working = Working but with some occasional problems
+> - Not Working = Does not work and probably never will
+> - Not Tested = Not tested
+
+### ✔️ Working
+
+### ⚠️ Partially Working
+
+### ❌ Not Working
+
+### ❓ Not Tested
+
+
+## ℹ️ Credits
+
+
+
