@@ -173,7 +173,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 - [@acidanthera](https://github.com/acidanthera) for [OpenCore](https://github.com/acidanthera/OpenCorePkg) and many kext
 - [@corpnewt](https://github.com/corpnewt) for [ProperTree](https://github.com/corpnewt/ProperTree), [SSDTime](https://github.com/corpnewt/SSDTTime) and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
-- [@alvindimas05](https://github.com/alvindimas05) for AMDHelper [guide](https://github.com/alvindimas05/AMDHelper)
+- [@alvindimas05](https://github.com/alvindimas05) for [AMDHelper](https://github.com/alvindimas05/AMDHelper)
 - [@USBToolBox](https://github.com/USBToolBox) for [USBToolBox](https://github.com/USBToolBox/tool)
 - [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed), [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors), [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
 - [@1Revenger1](https://github.com/1Revenger1/) for [ECEnabler](https://github.com/1Revenger1/ECEnabler/)
