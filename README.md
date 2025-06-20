@@ -1,18 +1,14 @@
-# WIP
+# W.I.P
 # Hackintosh for Thinkpad T14s Gen 2 (AMD version) NO EFI
 
 > [!WARNING]
-> I am not responsible for any damages you may cause
-> installing MacOS on your thinkpad T14s Gen 2
+> I am not responsible for any damages you may cause installing MacOS on your thinkpad T14s Gen 2
 >
 > THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
 >
-> With this repository I would like to create a semi-guide to install MacOS
-> on the Thinkpad T14s Gen 2 Amd version and showing what works and what does not.
+> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 Amd version and showing what works and what does not.
 > 
-> You have to build your own EFI by following [Dortania
-> guide](https://dortania.github.io/) as you may have a
-> a slightly different configuration than mine.
+> You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) as you may have a slightly different configuration than mine.
 
 
 ## 💻 Hardware
@@ -27,15 +23,17 @@
 
 ## BIOS Config
 
-| Menu     |                   |                                  | Setting     | Note        |
-| -------- | ----------------- | -------------------------------- | ----------- | ----------- |
-| Config   | CPU               | CPU Power Management             | `Enable`    |             |
-| Security | Security Chip     |                                  | `Disable`   |             |
-|          | Memory Protection | Execution Prevention             | `Enable`    |             |
-|          | Virtualization    | AMD Virtualization Technology    | `Enable`    |             |
-|          | Secure Boot       |                                  | `Disable`   | [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot) |
-|          | Device Guard      |                                  | `Disable`   |             |
-| Startup  | Boot Mode         |                                  | `Quick`     |             |
+| BIOS     | Section           | Setting                          | Status    | Note         |
+| -------- | ----------------- | -------------------------------- | --------- |--------------|
+| Config   | Network           | Wake On Lan                      | `Disabled`|              |
+|          | Network           | Wake On Lan From Dock            | `Disabled`|              |
+|          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB would be preferable              |
+|          | Power             | CPU Power Management             | `Enabled` |              |
+|          | Power             | Sleep State                      | `Linux`   |              |
+| Security | Security Chip     | Security Chip                    | `Disabled`|              |
+|          | Memory Protection | Exectuion Prevention             | `Enabled` |              |
+|          | Virtualization    | AMD V (TM) Technology            | `Enabled` |              |
+|          | Secure Boot       | Secure Boot                      | `Disabled`| [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)             |     
 
 ## Pre-setup
 
@@ -43,7 +41,7 @@ You must have a usb stick where you put OpenCore and the MacOS recovery.
 You must use your Target Laptop to set up your SSDT and USB and you should have a second PC for troubleshooting.
 You should update your BIOS before trying to install MacOS.        
 Download [OpenCore debug](https://github.com/acidanthera/opencorepkg/releases) (This will provide us more logs to help us troubleshooting in case of problems.)     
-Download [ProperTree](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) (a .plis editor)       
+Download [ProperTree](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) (a .plist editor)       
 Download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS/archive/refs/heads/master.zip) (to generate your SMBIOS)      
 In Windows Download [SSDTTime](https://github.com/corpnewt/SSDTTime/archive/refs/heads/master.zip) (to generate your ssdt)        
 In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag/0.2) (to map your usb)
@@ -58,8 +56,7 @@ Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCo
 You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
 From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
 Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
-Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM,
-but note that it is known to brick some thinkpads making them unbootable so i would prefer not to. I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP).     
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to. I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
 Kext folder setup        
 You have to download the following kext and pute them into your `Kext` folder :
@@ -74,7 +71,7 @@ You have to download the following kext and pute them into your `Kext` folder :
 | [Itlwm or AirportItlwm](https://openintelwireless.github.io/itlwm/)    | If you're installing Ventura or lower you can use AirportItlwm as it enables native wifi but, if you're installing Sonoma+,  itlwm + heliport is reccomended (Read the guide from the link to understand better)       |
 | [OpenIntelBluetooth](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | On macOS 12+ you need to use IntelBluetoothFirmware and IntelBTPatcher from the zip that you just downloaded, and BlueToolFixup from [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases). |
 |[VoodooPS2](https://github.com/acidanthera/VoodooPS2/releases) ||
-| [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C/releases) | This enables just trackpad but, If you want, you can add VoodooI2CHID to also enables touchscreen. |
+| [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C/releases) | This enables just trackpad but, If you want, you can also add VoodooI2CHID to also enables touchscreen. |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | |
 | [AppleMCEReporterDisabler](https://chefkissinc.github.io/Extras/Kexts/AppleMCEReporterDisabler.zip) | |
 | [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant/releases) | |
@@ -86,7 +83,7 @@ In Windows, download USBToolBox, extract It and open `windows.exe`. Go in the se
 select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port. Once you're done with mapping, go to
 `Select Ports`, adjust anything that is not set correct and then press `K` to build the kext then, put it into your `kext` folder.
 
-.Plist setup
+Config.plist setup
 From the `OpenCorePKG` folder, open the `docs` folder then copy the `sample.plist` file and put it on your usb stick into the `OC` folder, then rename it into `config.plist`.
 Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`
 
@@ -109,6 +106,8 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
 For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot
 
+If you're using Itwlm instead of AirportItlwm you won't initially have access to the internet so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your wifi into the configuration to use It without the Heliport. If you can't get this to work and you can't use your ethernet, you can use [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view) if you have an android device to use your usb tethering.
+
 ## Post-Install
 
 #### Bluetooth issues      
@@ -129,27 +128,59 @@ Now your bluetooth should work properly
 #### Crashing apps issue   
 Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work.
 
+#### YogaSMC features
+
+If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
+
 
 
 ## 🔧 Status
 
 > [!NOTE]
 >
+>I firstly installed ventura and then I upgraded to Sequoia but everything but this status should apply to every MacOS version you install. Let me know if it is not like this.
+> 
 > - Working = Works out of the box or with some troubleshooting 
 > - Partially Working = Working but with some occasional problems
 > - Not Working = Does not work and probably never will
-> - Not Tested = Not tested
+> - Not Tested = Not tested but would probably works
 
 ### ✔️ Working
+- GPU acceleration and backlight control
+- Audio + Jack + HDMI Audio
+- Keyboard, Trackpad, Trackpoint and touch
+- Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
+- Bluetooth
+- HDMI
+- Function keys
+- USB
 
 ### ⚠️ Partially Working
 
+- PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows)
+- Proper Standby functionality (I couldn't not MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby`)
+
 ### ❌ Not Working
+- Mic
+- Camera
 
 ### ❓ Not Tested
+- USB-C display port
+- LAN
 
 
 ## ℹ️ Credits
-
+- [@acidanthera](https://github.com/acidanthera) for [OpenCore](https://github.com/acidanthera/OpenCorePkg) and many kext
+- [@corpnewt](https://github.com/corpnewt) for [ProperTree](https://github.com/corpnewt/ProperTree), [SSDTime](https://github.com/corpnewt/SSDTTime) and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+- [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
+- [@alvindimas05](https://github.com/alvindimas05) for AMDHelper [guide](https://github.com/alvindimas05/AMDHelper)
+- [@USBToolBox](https://github.com/USBToolBox) for [USBToolBox](https://github.com/USBToolBox/tool)
+- [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed), [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors), [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
+- [@1Revenger1](https://github.com/1Revenger1/) for [ECEnabler](https://github.com/1Revenger1/ECEnabler/)
+- [@zxystd](https://github.com/zxystd) for [Intel Wireless Card kexts](https://github.com/OpenIntelWireless/)
+- [@Mieze](https://github.com/Mieze) for [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
+- [@zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
+- [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
+- [@perez987](https://github.com/perez987) for their [Secure Boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
 
 
