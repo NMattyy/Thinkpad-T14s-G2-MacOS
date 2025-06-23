@@ -20,7 +20,7 @@
 - Wireless Card: Intel AX210
 - LAN: Realtek GbE 8111 Family
 - Screen: IPS 1920x1080 (500 nits variant)
-- Keyboard PS2, I2C Trackpad, Trackpoint and Touchscreen
+- PS2 Keyboard and I2C Trackpad, Trackpoint and Touchscreen
 - 2x USB-C 3.2 gen 2
 - 2x USB 3.2 gen 1
 - HDMI 2.0
@@ -173,7 +173,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 
 ### ❓ Not Tested
 - USB-C display port
-- LAN
+- LAN with Dock extension connector
 - SmartCard reader
 
 
