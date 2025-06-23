@@ -19,7 +19,13 @@
 - Audio Codec: Realtek ALC257
 - Wireless Card: Intel AX210
 - LAN: Realtek GbE 8111 Family
-- Screen: IPS 1920x1080 (500 nits variant) with touchscreen
+- Screen: IPS 1920x1080 (500 nits variant)
+- Keyboard PS2, I2C Trackpad, Trackpoint and Touchscreen
+- 2x USB-C 3.2 gen 2
+- 2x USB 3.2 gen 1
+- HDMI 2.0
+- Dock extension connector
+- SmartCard Reader
 
 ## BIOS Config
 
@@ -37,14 +43,14 @@
 
 ## Pre-setup
 
-You must have a usb stick where you put OpenCore and the MacOS recovery.           
+You must have a usb stick formatted in `FAT32` where you put OpenCore and the MacOS recovery.           
 You must use your Target Laptop to set up your SSDT and USB and you should have a second PC for troubleshooting.
 You should update your BIOS before trying to install MacOS.        
 Download [OpenCore debug](https://github.com/acidanthera/opencorepkg/releases) (This will provide us more logs to help us troubleshooting in case of problems.)     
 Download [ProperTree](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) (a .plist editor)       
 Download [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS/archive/refs/heads/master.zip) (to generate your SMBIOS)      
-In Windows Download [SSDTTime](https://github.com/corpnewt/SSDTTime/archive/refs/heads/master.zip) (to generate your ssdt)        
-In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag/0.2) (to map your usb)
+In Windows Download [SSDTTime](https://github.com/corpnewt/SSDTTime/archive/refs/heads/master.zip) (to generate your SSDT)        
+In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag/0.2) (to map your USB)
 
 ## Setup
 
@@ -106,7 +112,7 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
 For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot
 
-If you're using Itwlm instead of AirportItlwm you won't initially have access to the internet so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your wifi into the configuration to use It without the Heliport. If you can't get this to work and you can't use your ethernet, you can use [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view) if you have an android device to use your usb tethering.
+If you're using Itwlm instead of AirportItlwm you won't initially have access to the internet so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your wifi into the configuration to use It without the Heliport. If you can't get it work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
 
 ## Post-Install
 
@@ -133,7 +139,6 @@ Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the pa
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
 
-
 ## 🔧 Status
 
 > [!NOTE]
@@ -144,6 +149,8 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 > - Partially Working = Working but with some occasional problems
 > - Not Working = Does not work and probably never will
 > - Not Tested = Not tested but would probably works
+
+![Lenovo](./Example.png)
 
 ### ✔️ Working
 - GPU acceleration and backlight control
@@ -167,6 +174,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 ### ❓ Not Tested
 - USB-C display port
 - LAN
+- SmartCard reader
 
 
 ## ℹ️ Credits
