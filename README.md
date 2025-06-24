@@ -65,7 +65,7 @@ Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5
 Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
 #### Kext folder setup        
-You have to download the following kext and pute them into your `Kext` folder :
+You have to download the following kextd and put them into your `Kexts` folder :
 | Kext        |  Note             |
 | --------    | ----------------- |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)   |                   |
