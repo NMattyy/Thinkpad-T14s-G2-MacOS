@@ -85,7 +85,7 @@ You have to download the following kext and pute them into your `Kext` folder :
 | [BrightnessKeys](https://github.com/acidanthera/BrightnessKeys) | |
 
 #### Map your USB     
-In Windows, download USBToolBox, extract It and open `windows.exe`. Go in the settings and enable Native Classes then,
+In Windows, download USBToolBox, extract It and open `windows.exe`. Go in the settings and enable `Native Classes` then,
 select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port. Once you're done with mapping, go to
 `Select Ports`, adjust anything that is not set correct and then press `K` to build the kext then, put it into your `kext` folder.
 
@@ -110,9 +110,9 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 ## Troubleshooting
 
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
-For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot
+For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot (If you need to dualboot windows using opencore you have to set `SyncRuntimePermissions -> True`. Should not work but... it does.)
 
-If you're using Itwlm instead of AirportItlwm you won't initially have access to the internet so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your wifi into the configuration to use It without the Heliport. If you can't get it work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
+If you're using `Itwlm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the WIFI panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your WIFI info into the configuration to allow `Itwlm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
 
 ## Post-Install
 
@@ -131,12 +131,13 @@ For Sequoia and newer, if adding the NVMRAM values does not work, you can try ad
 Now your bluetooth should work properly.          
 
 #### Crashing apps issue   
-Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work.
+Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work/chromium based apps that cause graphical issues with NootedRed.
 
 #### YogaSMC features
 
-If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
+If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
+Requires some addittional SSDT that you have to compile by yourself.
 
 ## 🔧 Status
 
@@ -154,9 +155,9 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 ### ✔️ Working
 - GPU acceleration and backlight control
 - Audio + Jack + HDMI Audio
-- Keyboard, Trackpad, Trackpoint and touch
+- Keyboard, Trackpoint and Trackpad's buttons
 - Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
-- Bluetooth
+- Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
 - Function keys
 - USB
@@ -165,6 +166,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 
 - PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows)
 - Proper Standby functionality (I couldn't not MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby`)
+- Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.
 
 ### ❌ Not Working
 - Mic
