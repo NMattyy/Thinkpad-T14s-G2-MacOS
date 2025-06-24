@@ -125,7 +125,7 @@ Go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plis
 | bluetoothInternalControllerInfo | Data | 00000000 00000000 00000000 0000 |
 | bluetoothExternalDongleFailed | Data | 00 |
 
-For Sonoma and older, if adding the NVMRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.
+For Sonoma and older, if adding the NVMRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.                                                                 
 For Sequoia and newer, if adding the NVMRAM values does not work, you can try adding `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
 
 Now your bluetooth should work properly.          
