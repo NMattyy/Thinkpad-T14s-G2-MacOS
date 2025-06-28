@@ -169,7 +169,7 @@ Requires some addittional SSDT that you have to compile by yourself.
 - Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.)
 
 ### ❌ Not Working
-- Internal mic (could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA) Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
+- Internal mic (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
 - Camera
 
 ### ❓ Not Tested
