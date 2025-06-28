@@ -62,7 +62,7 @@ Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCo
 You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
 From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
 Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
-Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVMRAM.efi` to reset the NVMRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVRAM.efi` to reset the NVRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
 #### Kext folder setup        
 You have to download the following kextd and put them into your `Kexts` folder :
@@ -150,7 +150,6 @@ Requires some addittional SSDT that you have to compile by yourself.
 > - Not Working = Does not work and probably never will
 > - Not Tested = Not tested but would probably works
 
-![Lenovo](./Example.png)
 
 ### ✔️ Working
 - GPU acceleration and backlight control
