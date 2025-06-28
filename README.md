@@ -6,7 +6,7 @@
 >
 > THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
 >
-> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 Amd version and showing what works and what does not.
+> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) and showing what works and what does not work.
 > 
 > You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) as you may have a slightly different configuration than mine.
 
@@ -33,7 +33,7 @@
 | -------- | ----------------- | -------------------------------- | --------- |--------------|
 | Config   | Network           | Wake On Lan                      | `Disabled`|              |
 |          | Network           | Wake On Lan From Dock            | `Disabled`|              |
-|          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB would be preferable              |
+|          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB+ would be preferable              |
 |          | Power             | CPU Power Management             | `Enabled` |              |
 |          | Power             | Sleep State                      | `Linux`   |              |
 | Security | Security Chip     | Security Chip                    | `Disabled`|              |
@@ -125,8 +125,8 @@ Go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plis
 | bluetoothInternalControllerInfo | Data | 00000000 00000000 00000000 0000 |
 | bluetoothExternalDongleFailed | Data | 00 |
 
-For Sonoma and older, if adding the NVMRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.                                                                 
-For Sequoia and newer, if adding the NVMRAM values does not work, you can try adding `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
+For Sonoma and older, if adding the NVRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.                                                                 
+For Sequoia and newer, if adding the NVRAM values does not work, you can try adding `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
 
 Now your bluetooth should work properly.          
 
@@ -165,11 +165,11 @@ Requires some addittional SSDT that you have to compile by yourself.
 ### ⚠️ Partially Working
 
 - PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows.)
-- Proper Standby functionality (I couldn't not MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby`)
+- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios)
 - Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.)
 
 ### ❌ Not Working
-- Mic
+- Internal mic (could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA) Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
 - Camera
 
 ### ❓ Not Tested
@@ -191,5 +191,6 @@ Requires some addittional SSDT that you have to compile by yourself.
 - [@zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 - [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - [@perez987](https://github.com/perez987) for their [Secure Boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
+- [@CloverHackyColor](https://github.com/CloverHackyColor/) for [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA)
 
 
