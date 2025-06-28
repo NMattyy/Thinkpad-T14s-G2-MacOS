@@ -91,7 +91,7 @@ select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port.
 
 #### Config.plist setup
 From the `OpenCorePKG` folder, open the `docs` folder then copy the `sample.plist` file and put it on your usb stick into the `OC` folder, then rename it into `config.plist`.
-Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`
+Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`. When It comes to choose your `SMBIOS`, you must choose the `MacBookPro16,3`.
 
 #### SSDT creation     
 In Windows, download SSDTTime, extract It and open `SSDTTime.bat`.        
@@ -105,7 +105,7 @@ Then, you have to choose this options.
 `XOSI` (Choose A)  
 `PNLF`   
 `ALS0`     
-Now, go into the `Results` folder and take every `.aml` file and put it into your `OC/ACPI` folder. Now, from the `SSDTTime` folder use the `PatchMerge.bat` file to merge your `config.plist` with the patch that SSDTTime created for you.
+Now, go into the `Results` folder and take every `.aml` file and put it into your `OC/ACPI` folder. Now, from the `SSDTTime` folder use the `PatchMerge.bat` file to merge your `config.plist` with the patch that SSDTTime created for you then, go to ProperTree again and perform an `OC Snapshot`.
 
 ## Troubleshooting
 
