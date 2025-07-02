@@ -1,12 +1,12 @@
 # W.I.P
-# Hackintosh for Thinkpad T14s Gen 2 (AMD version) NO EFI
+# How to install MacOS on a Thinkpad T14s Gen 2 AMD  (NO EFI)
 
 > [!WARNING]
 > I am not responsible for any damages you may cause installing MacOS on your thinkpad T14s Gen 2
 >
 > THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
 >
-> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) and showing what works and what does not work.
+> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) using OpenCore and showing what works and what does not work.
 > 
 > You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) as you may have a slightly different configuration than mine.
 
