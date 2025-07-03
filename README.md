@@ -41,6 +41,23 @@
 |          | Virtualization    | AMD V (TM) Technology            | `Enabled` |              |
 |          | Secure Boot       | Secure Boot                      | `Disabled`| [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)             |     
 
+## MacOS Support
+
+This section only cover general compatibility of MacOS. I have not tested every version. For compatibility status see [Status](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS/?tab=readme-ov-file#-status).                                          
+`SMBIOS: MacBookPro16,3`                       
+`Min version: Catalina 10.15.x` `Max Version: Tahoe 26.x`                      
+`Recommended: Ventura 13.x`                             
+
+| Version              |  Note                 |
+| -------------------- |  -------------------- |
+| Catalina 10.15       |  Could have some issue with NootedRed | 
+| Big Sur 11           |                       | 
+| Monterey 12          |                       | 
+| Ventura 13           |                       | 
+| Sonoma 14            | Noticebly more unstable than previous version because of NootedRed | 
+| Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
+| Tahoe 26             | `BETA` Noticebly more unstable than previous version because of NootedRed | 
+
 ## Pre-setup
 
 You must have a usb stick formatted in `FAT32` where you put OpenCore and the MacOS recovery.           
@@ -91,7 +108,7 @@ select `Discover Ports` and plug a USB 3 device and a USB 2 device in each port.
 
 #### Config.plist setup
 From the `OpenCorePKG` folder, open the `docs` folder then copy the `sample.plist` file and put it on your usb stick into the `OC` folder, then rename it into `config.plist`.
-Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`. When It comes to choose your `SMBIOS`, you must choose the `MacBookPro16,3`.
+Now, follow [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html) to setup your `config.plist`.
 
 #### SSDT creation     
 In Windows, download SSDTTime, extract It and open `SSDTTime.bat`.        
