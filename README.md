@@ -56,7 +56,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than previous version because of NootedRed | 
 | Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
-| Tahoe 26             | `BETA` Noticebly more unstable than previous version because of NootedRed | 
+| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed | 
 
 ## Pre-setup
 
@@ -137,10 +137,10 @@ If you're using `Itwlm` instead of `AirportItlwm`, in Recovery, you won't initia
 For Monterey and older, if you followed the guide, It should work Out Of The Box, but if you installed Ventura+ you have to do some trouble shooting.      
 Go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plist` file and add this under the corrispondent `Add` and `Delete` sections:      
 
-| Key        |  Type           |  Value             |
+| Key        |  Type              |  Value            |
 | --------    | ----------------- | ----------------- |
 | bluetoothInternalControllerInfo | Data | 00000000 00000000 00000000 0000 |
-| bluetoothExternalDongleFailed | Data | 00 |
+| bluetoothExternalDongleFailed   | Data | 00 |
 
 For Sonoma and older, if adding the NVRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.                                                                 
 For Sequoia and newer, if adding the NVRAM values does not work, you can try adding `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
@@ -154,7 +154,7 @@ Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the pa
 
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
-Requires some addittional SSDT that you have to compile by yourself.
+Requires some addittional SSDT that you have to compile by yourself using your `DSDT.aml` and the example SSDTs that are available on their site.
 
 ## 🔧 Status
 
@@ -181,12 +181,13 @@ Requires some addittional SSDT that you have to compile by yourself.
 ### ⚠️ Partially Working
 
 - PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows.)
-- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios)
+- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios. Other than that, stanby works.)
 - Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.)
 
 ### ❌ Not Working
 - Internal mic (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
 - Camera
+- Battery treshold (It could probably work. I just think that my YogaSMC's SSDTs are just bad.)
 
 ### ❓ Not Tested
 - USB-C display port
