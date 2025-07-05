@@ -33,7 +33,7 @@
 | -------- | ----------------- | -------------------------------- | --------- |--------------|
 | Config   | Network           | Wake On Lan                      | `Disabled`|              |
 |          | Network           | Wake On Lan From Dock            | `Disabled`|              |
-|          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB+ would be preferable              |
+|          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB would be preferable              |
 |          | Power             | CPU Power Management             | `Enabled` |              |
 |          | Power             | Sleep State                      | `Linux`   |              |
 | Security | Security Chip     | Security Chip                    | `Disabled`|              |
@@ -58,7 +58,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
 | Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed. No interal audio support (for the moment) | 
 
-The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration as NootedRed does not support anything above `Catalina 10.15`, I counted them as `Unsupported`
+The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
 ## Pre-setup
 
@@ -131,7 +131,7 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
 For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot (If you need to dualboot windows using opencore you have to set `SyncRuntimePermissions -> True`. Should not work but... it does.)
 
-If you're using `Itwlm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the WIFI panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your WIFI info into the configuration to allow `Itwlm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
+If you're using `Itlwm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the Wifi panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your WIFI info into the configuration to allow `Itlwm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
 
 ## Post-Install
 
@@ -188,7 +188,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 
 ### ❌ Not Working
 - Internal mic (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
-- Camera
+- Internal camera
 - Battery treshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad.)
 
 ### ❓ Not Tested
