@@ -56,7 +56,9 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than previous version because of NootedRed | 
 | Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
-| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed | 
+| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed. No interal audio support (for the moment) | 
+
+The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration as NootedRed does not support anything above `Catalina 10.15`, I counted them as `Unsupported`
 
 ## Pre-setup
 
@@ -187,7 +189,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 ### ❌ Not Working
 - Internal mic (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
 - Camera
-- Battery treshold (It could probably work. I just think that my YogaSMC's SSDTs are just bad.)
+- Battery treshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad.)
 
 ### ❓ Not Tested
 - USB-C display port
