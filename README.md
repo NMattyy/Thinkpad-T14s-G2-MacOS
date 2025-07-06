@@ -89,7 +89,7 @@ You have to download the following kextd and put them into your `Kexts` folder :
 | --------    | ----------------- |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)   |                   |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)  | From the zip folder that you get when you download this kext you have to also pick `SMCBattery`                |
-| [SMCRadeon](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
+| [SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
 | [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, while installing, disable It    | 
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)            | You can use `alcid=11` as codec in your boot-args       |
 |  [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)           | Use version `2.4.2` as version `2.5.0` is not meant for AMD CPUs |
@@ -168,6 +168,8 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 > - Partially Working = Working but with some occasional problems
 > - Not Working = Does not work and probably never will
 > - Not Tested = Not tested but would probably works
+>
+> This applies only to stable releases.
 
 
 ### ✔️ Working
