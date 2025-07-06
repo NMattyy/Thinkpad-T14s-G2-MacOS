@@ -36,7 +36,7 @@
 |          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB would be preferable              |
 |          | Power             | CPU Power Management             | `Enabled` |              |
 |          | Power             | Sleep State                      | `Linux`   |              |
-| Security | Security Chip     | Security Chip                    | `Disabled`|              |
+| Security | Security Chip     | Security Chip                    | `Disabled`| Only if you problems with sleep/wake functionality            |
 |          | Memory Protection | Exectuion Prevention             | `Enabled` |              |
 |          | Virtualization    | AMD V (TM) Technology            | `Enabled` |              |
 |          | Secure Boot       | Secure Boot                      | `Disabled`| [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)             |     
@@ -56,7 +56,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than previous version because of NootedRed | 
 | Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
-| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed. No interal audio support (for the moment) | 
+| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed. No interal audio support (At the moment) | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
@@ -92,8 +92,8 @@ You have to download the following kextd and put them into your `Kexts` folder :
 | [SMCRadeon](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
 | [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, while installing, disable It    | 
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)            | You can use `alcid=11` as codec in your boot-args       |
-|  [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)           |      |
-| [Itlwm or AirportItlwm](https://openintelwireless.github.io/itlwm/)    | If you're installing Ventura or lower you can use AirportItlwm as it enables native wifi but, if you're installing Sonoma+,  itlwm + heliport is reccomended (Read the guide from the link to understand better)       |
+|  [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)           | Use version `2.4.2` as version `2.5.0` is not meant for AMD CPUs |
+| [Itlwm or AirportItlwm](https://openintelwireless.github.io/itlwm/)    | If you're installing Ventura or lower you can use AirportItlwm as it enables native wifi but, if you're installing Sonoma+, itlwm + heliport is reccomended (Read the guide from the link to understand better)       |
 | [OpenIntelBluetooth](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) | On macOS 12+ you need to use IntelBluetoothFirmware and IntelBTPatcher from the zip that you just downloaded, and BlueToolFixup from [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases). |
 |[VoodooPS2](https://github.com/acidanthera/VoodooPS2/releases) ||
 | [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C/releases) | This enables just trackpad but, If you want, you can also add VoodooI2CHID to also enables touchscreen. |
