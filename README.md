@@ -36,7 +36,7 @@
 |          | Display           | UMA Frame Buffer Size            | `512MB+`  | 2GB would be preferable              |
 |          | Power             | CPU Power Management             | `Enabled` |              |
 |          | Power             | Sleep State                      | `Linux`   |              |
-| Security | Security Chip     | Security Chip                    | `Disabled`| Only if you problems with sleep/wake functionality            |
+| Security | Security Chip     | Security Chip                    | `Disabled`| Only if you have problems with sleep/wake functionality            |
 |          | Memory Protection | Exectuion Prevention             | `Enabled` |              |
 |          | Virtualization    | AMD V (TM) Technology            | `Enabled` |              |
 |          | Secure Boot       | Secure Boot                      | `Disabled`| [Can be enabled after installation complete if you sign OpenCore](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)             |     
@@ -75,6 +75,7 @@ In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag
 
 You can either follow [Dortania](https://dortania.github.io/) and [ChefKiss](https://chefkissinc.github.io/guides/hackintosh/) guides (Highly recommended)
 or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)
+You should only rely on this guide for the Troubleshooting and Post-Install sections.
 
 #### Initial EFI setup         
 Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html)      
@@ -198,7 +199,6 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - LAN with Dock extension connector
 - SmartCard reader
 
-
 ## ℹ️ Credits
 - [@acidanthera](https://github.com/acidanthera) for [OpenCore](https://github.com/acidanthera/OpenCorePkg) and many kext
 - [@corpnewt](https://github.com/corpnewt) for [ProperTree](https://github.com/corpnewt/ProperTree), [SSDTime](https://github.com/corpnewt/SSDTTime) and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
@@ -213,5 +213,3 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - [@perez987](https://github.com/perez987) for their [Secure Boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
 - [@CloverHackyColor](https://github.com/CloverHackyColor/) for [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA)
-
-
