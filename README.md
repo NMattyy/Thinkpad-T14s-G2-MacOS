@@ -90,6 +90,7 @@ You have to download the following kextd and put them into your `Kexts` folder :
 | --------    | ----------------- |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)   |                   |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)  | From the zip folder that you get when you download this kext you have to also pick `SMCBattery`                |
+| [SMCProcessorAMD](https://github.com/macos86/SMCProcessorAMD/releases)            | Optional. Not officially compatible with Sequoia 15 |
 | [SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
 | [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, while installing, disable It    | 
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)            | You can use `alcid=11` as codec in your boot-args       |
@@ -213,3 +214,4 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - [@jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - [@perez987](https://github.com/perez987) for their [Secure Boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
 - [@CloverHackyColor](https://github.com/CloverHackyColor/) for [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA)
+- [@macos86](https://github.com/macos86/) for [SMCProcessorAMD](https://github.com/macos86/SMCProcessorAMD)
