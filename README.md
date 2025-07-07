@@ -2,13 +2,13 @@
 # How to install MacOS on a Thinkpad T14s Gen 2 AMD  (NO EFI)
 
 > [!WARNING]
-> I am not responsible for any damages you may cause installing MacOS on your thinkpad T14s Gen 2
+> I am not responsible for any damages you may cause installing MacOS on your Laptop.
 >
 > THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
 >
 > With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) using OpenCore and showing what works and what does not work.
 > 
-> You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) as you may have a slightly different configuration than mine.
+> You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) and [ChefKiss Guide](https://chefkissinc.github.io/guides/hackintosh/) as you may have a slightly different configuration than mine.
 
 
 ## 💻 Hardware
@@ -48,15 +48,15 @@ This section only cover general compatibility of MacOS. I have not tested every 
 `Min version: Catalina 10.15.x` `Max Version: Tahoe 26.x`                      
 `Recommended: Ventura 13.x`                             
 
-| Version              |  Note                 |
-| -------------------- |  -------------------- |
-| Catalina 10.15       |  Could have some issue with NootedRed | 
+| Version              | Note                 |
+| -------------------- | -------------------- |
+| Catalina 10.15       | Could have some issue with NootedRed | 
 | Big Sur 11           |                       | 
 | Monterey 12          |                       | 
 | Ventura 13           |                       | 
-| Sonoma 14            | Noticebly more unstable than previous version because of NootedRed | 
-| Sequoia 15           | Noticebly more unstable than previous version because of NootedRed | 
-| Tahoe 26 `BETA`      | Noticebly more unstable than previous version because of NootedRed. No interal audio support (At the moment) | 
+| Sonoma 14            | Noticebly more unstable than Ventura | 
+| Sequoia 15           | Noticebly more unstable than Ventura | 
+| Tahoe 26 `BETA`      | Noticebly more unstable than Ventura. No interal audio support (At the moment) | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
@@ -74,7 +74,7 @@ In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag
 ## Setup
 
 You can either follow [Dortania](https://dortania.github.io/) and [ChefKiss](https://chefkissinc.github.io/guides/hackintosh/) guides (Highly recommended)
-or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)
+or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)                                   
 You should only rely on this guide for the Troubleshooting and Post-Install sections.
 
 #### Initial EFI setup         
@@ -133,7 +133,7 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
 For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot (If you need to dualboot windows using opencore you have to set `SyncRuntimePermissions -> True`. Should not work but... it does.)
 
-If you're using `Itlwm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the Wifi panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your WIFI info into the configuration to allow `Itlwm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
+If you're using `Itlwm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the Wifi panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your Wifi info into the configuration to allow `Itlwm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
 
 ## Post-Install
 
@@ -156,7 +156,7 @@ Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the pa
 
 #### YogaSMC features
 
-If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery conservation or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
+If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery treshold or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
 Requires some addittional SSDT that you have to compile by yourself using your `DSDT.aml` and the example SSDTs that are available on their site.
 
@@ -201,12 +201,12 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - SmartCard reader
 
 ## ℹ️ Credits
-- [@acidanthera](https://github.com/acidanthera) for [OpenCore](https://github.com/acidanthera/OpenCorePkg) and many kext
+- [@acidanthera](https://github.com/acidanthera) for [OpenCore](https://github.com/acidanthera/OpenCorePkg) and many kexts
 - [@corpnewt](https://github.com/corpnewt) for [ProperTree](https://github.com/corpnewt/ProperTree), [SSDTime](https://github.com/corpnewt/SSDTTime) and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
 - [@alvindimas05](https://github.com/alvindimas05) for [AMDHelper](https://github.com/alvindimas05/AMDHelper)
 - [@USBToolBox](https://github.com/USBToolBox) for [USBToolBox](https://github.com/USBToolBox/tool)
-- [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed), [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors), [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
+- [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed) and [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors), [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
 - [@1Revenger1](https://github.com/1Revenger1/) for [ECEnabler](https://github.com/1Revenger1/ECEnabler/)
 - [@zxystd](https://github.com/zxystd) for [Intel Wireless Card kexts](https://github.com/OpenIntelWireless/)
 - [@Mieze](https://github.com/Mieze) for [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
