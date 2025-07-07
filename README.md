@@ -11,7 +11,7 @@
 > You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) and [ChefKiss Guide](https://chefkissinc.github.io/guides/hackintosh/) as you may have a slightly different configuration than mine.
 
 
-## 💻 Hardware
+## 💻 Hardware <img align="right" src="" alt="Lenovo ThinkPad T14s Gen 2 (Amd Version)" width="460">
 - CPU: AMD Ryzen 7 PRO 5850U With Radeon Graphics
 - GPU: Vega 8 2GB (VRAM adjusted in BIOS)
 - RAM: 16GB 4266 MHz
