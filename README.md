@@ -11,8 +11,8 @@
 
 
 ## 💻 Hardware 
-- CPU: AMD Ryzen 7 PRO 5850U With Radeon Graphics                         
 <img align="right" src="https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS/blob/main/Assets/Thinkpad%20T14s%20Gen%202.png?raw=true" alt="Lenovo ThinkPad T14s Gen 2 (Amd Version)" width="400">
+- CPU: AMD Ryzen 7 PRO 5850U With Radeon Graphics                         
 - GPU: Vega 8 2GB (VRAM adjusted in BIOS).                      
 - RAM: 16GB 4266 MHz
 - Storage: 512GB SSD NVME (WDC PC SN730 512G)
