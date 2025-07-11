@@ -154,7 +154,6 @@ Now your bluetooth should work properly.
 Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work/chromium based apps that cause graphical issues with NootedRed.
 
 #### YogaSMC features
-
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery treshold or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
 Requires some addittional SSDT that you have to compile by yourself using your `DSDT.aml` and the example SSDTs that are available on their site.
@@ -163,7 +162,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 
 > [!NOTE]
 >
->I firstly installed ventura and then I upgraded to Sequoia and I did not test any other version but everything in this status should apply to every MacOS version you installable on this Thinkpad. Let me know if It is not so.
+>I firstly installed ventura and then I upgraded to Sequoia and I did not test any other version but everything in this status should apply to every MacOS version installable on this Thinkpad. Let me know if It is not so.
 > 
 > - Working = Works out of the box or with some troubleshooting 
 > - Partially Working = Working but with some occasional problems
@@ -186,13 +185,13 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 ### ⚠️ Partially Working
 
 - PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows.)
-- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios. Other than that, stanby works.)
+- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios. Other than that, standby works.)
 - Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.)
 
 ### ❌ Not Working
-- Internal mic (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
+- Internal microphone (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
 - Internal camera
-- Battery treshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad.)
+- Battery threshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad.)
 
 ### ❓ Not Tested
 - USB-C display port
