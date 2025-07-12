@@ -12,11 +12,11 @@
 
 ## 💻 Hardware 
 - CPU: AMD Ryzen 7 PRO 5850U With Radeon Graphics                         
-- GPU: Vega 8 2GB (VRAM adjusted in BIOS).                      
+- GPU: Integrated Vega 8 2GB (VRAM adjusted in BIOS)                      
 - RAM: 16GB 4266 MHz
 - Storage: 512GB SSD NVME (WDC PC SN730 512G)
 - Audio Codec: Realtek ALC257
-- Wireless Card: Intel AX210
+- Wireless Card: Intel AX210 WIFI 6E + Bluetooth 5.3
 - LAN: Realtek GbE 8111 Family
 - Screen: IPS 1920x1080 (500 nits variant)
 - PS2 Keyboard and I2C Trackpad, Trackpoint and Touchscreen
@@ -43,7 +43,7 @@
 ## MacOS Support
 
 This section only cover general compatibility of MacOS. I have not tested every version. For compatibility status see [Status](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS/?tab=readme-ov-file#-status).                                          
-`SMBIOS: MacBookPro16,3`                       
+`SMBIOS: MacBookPro16,3 (MacBookPro16,2 for Tahoe 26.x)`                       
 `Min version: Catalina 10.15.x` `Max Version: Tahoe 26.x`                      
 `Recommended: Ventura 13.x`                             
 
@@ -81,7 +81,8 @@ Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCo
 You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
 From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
 Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
-Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVRAM.efi` to reset the NVRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVRAM.efi` to reset the NVRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) 
+I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
 #### Kext folder setup        
 You have to download the following kextd and put them into your `Kexts` folder :
@@ -137,7 +138,7 @@ If you're using `Itlwm` instead of `AirportItlwm`, in Recovery, you won't initia
 ## Post-Install
 
 #### Bluetooth issues      
-For Monterey and older, if you followed the guide, It should work Out Of The Box, but if you installed Ventura+ you have to do some trouble shooting.      
+For Monterey and older, if you followed the guide, bluetooth should work Out Of The Box, but if you installed Ventura+ you have to do some trouble shooting.      
 Go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plist` file and add this under the corrispondent `Add` and `Delete` sections:      
 
 | Key        |  Type              |  Value            |
@@ -179,6 +180,8 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
 - Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
+- Sensor reading
+- Clamshell mode
 - Function keys
 - USB
 
