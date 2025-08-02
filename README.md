@@ -55,7 +55,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than Ventura | 
 | Sequoia 15           | Noticebly more unstable than Ventura | 
-| Tahoe 26 `BETA`      | Noticebly more unstable than Ventura. No interal audio support (At the moment) | 
+| Tahoe 26 `BETA`      | Practically unusable. No interal audio support (At the moment) | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
@@ -73,7 +73,7 @@ In Windows Download [USBToolBox](https://github.com/USBToolBox/tool/releases/tag
 ## Setup
 
 You can either follow [Dortania](https://dortania.github.io/) and [ChefKiss](https://chefkissinc.github.io/guides/hackintosh/) guides (Highly recommended)
-or you can follow these steps (Not recommended because this refer to my personal experience that could not be the same as yours, even with the same laptop resulting in errors.)                                   
+or you can follow these steps (Not recommended because this only applies to my precisely laptop configuration that could not be the same as yours, resulting in errors.)                                   
 You should only rely on this guide for the Troubleshooting and Post-Install sections.
 
 #### Initial EFI setup         
