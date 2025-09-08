@@ -180,6 +180,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - GPU acceleration and backlight control
 - Audio + Jack + HDMI Audio
 - Keyboard, Trackpoint and Trackpad's buttons
+- Touchscreen
 - Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
 - Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
