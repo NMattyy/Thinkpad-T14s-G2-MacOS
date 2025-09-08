@@ -5,7 +5,7 @@
 >
 > THIS IS ONLY A GUIDE. I WILL NOT PROVIDE ANY EFI.
 >
-> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) using OpenCore and showing what works and what does not work.
+> With this repository I would like to create a semi-guide to install MacOS on the Thinkpad T14s Gen 2 (Amd version) using OpenCore and showing what works and what does not.
 > 
 > You have to build your own EFI by following [Dortania guide](https://dortania.github.io/) and [ChefKiss Guide](https://chefkissinc.github.io/guides/hackintosh/) as you may have a slightly different configuration than mine.
 
@@ -53,8 +53,8 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Big Sur 11           |                       | 
 | Monterey 12          |                       | 
 | Ventura 13           |                       | 
-| Sonoma 14            | Noticebly more unstable than Ventura | 
-| Sequoia 15           | Noticebly more unstable than Ventura | 
+| Sonoma 14            | Noticebly more unstable than Ventura because of NootedRed | 
+| Sequoia 15           | Noticebly more unstable than Ventura because of NootedRed | 
 | Tahoe 26 `BETA`      | Practically unusable. No interal audio support (At the moment) | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
@@ -154,6 +154,9 @@ Now your bluetooth should work properly.
 #### Crashing apps issue   
 Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work/chromium based apps that cause graphical issues with NootedRed.
 
+#### Poor battery life and heating
+Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable battery optimisation (Performance will be drastically reduced).
+
 #### YogaSMC features
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery treshold or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
@@ -180,21 +183,20 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
 - Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
-- Sensor reading
+- SMC Sensor reading
 - Clamshell mode
 - Function keys
 - USB
 
 ### ⚠️ Partially Working
-
-- PowerManagement (No official PowerManagement is supported but, as firmware do the big job and you can also do some other adjustment using amdHelper's battery optimization, you can have a semi-great PowerManagement even though battery life is worse than windows.)
-- Proper Standby functionality (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios. Other than that, standby works.)
-- Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue.)
+- Modern standby (I couldn't get MacOS to go into sleep mode while using `Modern Standby or Windows Standby` so I had to switch back into `S3 Standby or Linux Standby` in the bios. Other than that, standby works just fine).
+- Trackpad and Touchscreen (They actually work pretty well but they work inconsistently as, occasionally, they just don't work and you have to restart the entire system to get them to work. Right now I don't really know what's causing that issue).
 
 ### ❌ Not Working
-- Internal microphone (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA)
+- Internal microphone (Could work if you switch from AppleALC to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA). Note that the quality of the audio of the speakers will be lower if you switch to VoodooHDA).
 - Internal camera
-- Battery threshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad.)
+- PowerManagement (See [Poor battery life and heating](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#poor-battery-life-and-heating))
+- Battery threshold (It could probably work. I think that, probably, my YogaSMC's SSDTs are just bad).
 
 ### ❓ Not Tested
 - USB-C display port
