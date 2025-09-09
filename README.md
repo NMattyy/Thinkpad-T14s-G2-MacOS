@@ -81,7 +81,7 @@ Download MacOS recovery using [Dortania guide](https://dortania.github.io/OpenCo
 You can install every MacOS version from Catalina to Sequoia (Recommended Ventura as it is the most stable so far)      
 From the `OpenCore.zip` you've just downloaded, take the `EFI` folder from the `X64` folder and put it on your USB stick.        
 Into the `EFI` you have 2 folder, open the `OC` one then you will have another 5 folders, from the `Drivers` one you have to delete everthing except for `OpenRuntime.efi` and you have to download [HFSPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi).      
-Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVRAM.efi` to reset the NVRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to.) 
+Then, you have to go on the `Tools` folder. Here you have to delete everything except for `UEFIShell.efi` (You can also keep `CleanNVRAM.efi` to reset the NVRAM but note that it is known to brick some thinkpads making them unbootable so i would prefer not to). 
 I DO NOT TAKE ANY RESPONSABILITY IF YOU BREAK YOUR LAPTOP.     
 
 #### Kext folder setup        
@@ -147,7 +147,7 @@ Go into your `NVRAM>7C436110-AB2A-4BBB-A880-FE41995C9F82` section on your `.plis
 | bluetoothExternalDongleFailed   | Data | 00 |
 
 For Sonoma and older, if adding the NVRAM values does not work, you can try adding `-btlfxnvramcheck` in your boot-args.                                                                 
-For Sequoia and newer, if adding the NVRAM values does not work, you can try adding `-btlfxallowanyaddr` `-btlfxboardid` in your boot-args.
+For Sequoia and newer, if adding the NVRAM values does not work, you can try adding `-btlfxallowanyaddr` in your boot-args.
 
 Now your bluetooth should work properly.          
 
@@ -155,7 +155,7 @@ Now your bluetooth should work properly.
 Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable the patches that you need for the apps that don't work/chromium based apps that cause graphical issues with NootedRed.
 
 #### Poor battery life and heating
-Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable battery optimisation (Performance will be drastically reduced).
+That's due to the PowerManagement being non-existent. Install [AMDHelper](https://github.com/alvindimas05/AMDHelper) and enable battery optimisation (Performance will be drastically reduced).
 
 #### YogaSMC features
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery treshold or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
@@ -180,7 +180,6 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - GPU acceleration and backlight control
 - Audio + Jack + HDMI Audio
 - Keyboard, Trackpoint and Trackpad's buttons
-- Touchscreen
 - Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
 - Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
