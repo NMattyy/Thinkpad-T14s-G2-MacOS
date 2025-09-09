@@ -90,9 +90,9 @@ You have to download the following kextd and put them into your `Kexts` folder :
 | --------    | ----------------- |
 | [Lilu](https://github.com/acidanthera/Lilu/releases)   |                   |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)  | From the zip folder that you get when you download this kext you have to also pick `SMCBattery`                |
-| [SMCProcessorAMD](https://github.com/macos86/SMCProcessorAMD/releases)            | Optional. Not officially compatible with Sequoia 15 |
-| [SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional |
-| [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, while installing, disable It    | 
+| [SMCProcessorAMD](https://github.com/macos86/SMCProcessorAMD/releases)            | Optional. Gives SMC reading for the CPU |
+| [SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors/releases)            | Optional. Gives SMC reading for the GPU |
+| [NootedRed](https://nightly.link/ChefKissInc/NootedRed/workflows/main/master/Artifacts.zip)            | Could cause some problem on Sonoma+ so, during the installation process and the out of the box experience, disable It, change the background to a static one and change your account avatar to a normal photo, then you can re-enable It.    | 
 | [AppleALC](https://github.com/acidanthera/AppleALC/releases)            | You can use `alcid=11` as codec in your boot-args       |
 |  [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)           | Use version `2.4.2` as version `2.5.0` is not meant for AMD CPUs |
 | [Itlwm or AirportItlwm](https://openintelwireless.github.io/itlwm/)    | If you're installing Ventura or lower you can use AirportItlwm as it enables native wifi but, if you're installing Sonoma+, itlwm + heliport is reccomended (Read the guide from the link to understand better)       |
@@ -131,7 +131,7 @@ Now, go into the `Results` folder and take every `.aml` file and put it into you
 ## Troubleshooting
 
 You will likely get stuck at `[EB|#LOG:EXITBS:START]` so you have to follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#booter-issues). 
-For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot (If you need to dualboot windows using opencore you have to set `SyncRuntimePermissions -> True`. Should not work but... it does.)
+For my experience, you just have to set `EnableWriteUnprotector -> True`, `RebuildAppleMemoryMap -> False` and `SyncRuntimePermissions -> False`, then MacOS Recovery will boot (If you need to dualboot windows using opencore you have to set `SyncRuntimePermissions -> True`).
 
 If you're using `Itlwm` instead of `AirportItlwm`, in Recovery, you won't initially have access to the Wifi panel, as you can't use Heliport, so you have to edit the `info.plist` that you find inside `itlwm.kext`to manually add your Wifi info into the configuration to allow `Itlwm` to connect to it without Heliport. If you can't get it to work and you can't use your ethernet, if you have an android device you can use as usb tethering, you can install [HoRNDIS.kext](https://drive.google.com/file/d/1oBKn5JwKisGOaADY5dE85-coVNqXrkFx/view).
 
@@ -185,7 +185,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - HDMI
 - SMC Sensor reading
 - Clamshell mode
-- Function keys
+- Volume and Brightness function keys
 - USB
 
 ### ⚠️ Partially Working
