@@ -55,7 +55,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than Ventura because of NootedRed | 
 | Sequoia 15           | Noticebly more unstable than Ventura because of NootedRed | 
-| Tahoe 26 `BETA`      | Practically unusable. No interal audio support (At the moment) | 
+| Tahoe 26             | Noticebly more unstable than Ventura because of NootedRed. No interal audio support using AppleALC, switch to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA) if you need Audio Support | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
@@ -180,7 +180,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - GPU acceleration and backlight control
 - Audio + Jack + HDMI Audio
 - Keyboard, Trackpoint and Trackpad's buttons
-- Wifi (Trough AirportItlwm in Ventura and Itlwm + Heliport in Sequoia)
+- Wifi (Trough AirportItlwm in Ventura and older, trough Itlwm + Heliport in Sonoma and newer)
 - Bluetooth (See [Bluetooth issue](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#bluetooth-issues))
 - HDMI
 - SMC Sensor reading
@@ -209,7 +209,7 @@ Requires some addittional SSDT that you have to compile by yourself using your `
 - [@dortania](https://github.com/dortania) for their amazing [guide](https://dortania.github.io)
 - [@alvindimas05](https://github.com/alvindimas05) for [AMDHelper](https://github.com/alvindimas05/AMDHelper)
 - [@USBToolBox](https://github.com/USBToolBox) for [USBToolBox](https://github.com/USBToolBox/tool)
-- [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed) and [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors), [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
+- [@ChefKissInc](https://github.com/ChefKissInc) for their also amazing [guide](https://chefkissinc.github.io/), [NootedRed](https://github.com/ChefKissInc/NootedRed), [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors) and [ForgedInvariant](https://github.com/ChefKissInc/ForgedInvariant)
 - [@1Revenger1](https://github.com/1Revenger1/) for [ECEnabler](https://github.com/1Revenger1/ECEnabler/)
 - [@zxystd](https://github.com/zxystd) for [Intel Wireless Card kexts](https://github.com/OpenIntelWireless/)
 - [@Mieze](https://github.com/Mieze) for [RTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
