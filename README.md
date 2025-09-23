@@ -55,7 +55,7 @@ This section only cover general compatibility of MacOS. I have not tested every 
 | Ventura 13           |                       | 
 | Sonoma 14            | Noticebly more unstable than Ventura because of NootedRed | 
 | Sequoia 15           | Noticebly more unstable than Ventura because of NootedRed | 
-| Tahoe 26             | Noticebly more unstable than Ventura because of NootedRed. No interal audio support using AppleALC, switch to [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA) if you need Audio Support | 
+| Tahoe 26             | Noticebly more unstable than Ventura because of NootedRed. [No official audio support](https://github.com/NMattyy/Thinkpad-T14s-G2-MacOS?tab=readme-ov-file#audio-support-on-Tahoe) | 
 
 The CPU could, actually, support `High Sierra 10.13` and superior but, as there's no way to get proper Graphics acceleration, as NootedRed does not support anything below `Catalina 10.15`, I counted them as `Unsupported`
 
@@ -161,6 +161,9 @@ That's due to the PowerManagement being non-existent. Install [AMDHelper](https:
 If you want to to have fan and sensors reading, fan control and other thinkpad's features that you have on windows like battery treshold or full function keys functionality, you can install [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
 Requires some addittional SSDT that you have to compile by yourself using your `DSDT.aml` and the example SSDTs that are available on their site.
+
+#### Audio support on Tahoe
+As Apple removed AppleHDA since Tahoe Beta 2, there is no official audio support, but, with the help of some tools, we can add It back without using OCLP using [this guide](https://github.com/perez987/AppleHDA-back-on-macOS-26-Tahoe).
 
 ## 🔧 Status
 
