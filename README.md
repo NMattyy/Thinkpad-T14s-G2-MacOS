@@ -163,7 +163,7 @@ If you want to to have fan and sensors reading, fan control and other thinkpad's
 Requires some addittional SSDT that you have to compile by yourself using your `DSDT.aml` and the example SSDTs that are available on their site.
 
 #### Audio support on Tahoe
-As Apple removed AppleHDA since Tahoe Beta 2, there is no official audio support, but, with the help of some tools, we can add It back without using OCLP using [this guide](https://github.com/perez987/AppleHDA-back-on-macOS-26-Tahoe).
+As Apple removed AppleHDA since Tahoe Beta 2, there is no official audio support, but, with the help of some tools, we can add It back without using [this guide](https://github.com/perez987/AppleHDA-back-on-macOS-26-Tahoe) instead of OCLP.
 
 ## 🔧 Status
 
@@ -221,3 +221,4 @@ As Apple removed AppleHDA since Tahoe Beta 2, there is no official audio support
 - [@perez987](https://github.com/perez987) for their [Secure Boot guide](https://github.com/perez987/OpenCore-and-UEFI-Secure-Boot)
 - [@CloverHackyColor](https://github.com/CloverHackyColor/) for [VoodooHDA](https://github.com/CloverHackyColor/VoodooHDA)
 - [@macos86](https://github.com/macos86/) for [SMCProcessorAMD](https://github.com/macos86/SMCProcessorAMD)
+- [@perez987](https://github.com/perez987/) for [AppleHDA back on Tahoe](https://github.com/perez987/AppleHDA-back-on-macOS-26-Tahoe)
